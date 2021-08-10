@@ -1,0 +1,25 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+
+/*-------------Typography--------------------*/ 
+--main-font: 'Caveat', cursive;
+--nav-font: 'Caveat', cursive;
+
+/*-------------Colors-----------------------*/ 
+--clr-main: blue; 
+}
+
+nav { 
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--nav-font);
+    font-size: 3rem;
+}
+
+nav a { 
+    text-decoration: none;
+    margin: 20px;
+    color: var(--clr-main);
+}
