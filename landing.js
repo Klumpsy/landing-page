@@ -1,3 +1,5 @@
+
+//Bubble creation function 
 function createBubble() { 
     const bubbleSection = document.querySelector('section'); 
     const createBubble = document.createElement('span'); 
@@ -14,7 +16,8 @@ function createBubble() {
     }, 10000)
 }
 
-setInterval(createBubble, 120);
+//Call bubbles every 0.25s; 
+setInterval(createBubble, 250);
 
 
 //Fish API call NEEDS WORK
@@ -24,8 +27,21 @@ async function getFish() {
     let api = `https://fishbase.ropensci.org`;
     let response = await fetch(api); 
     let data = await response.json(); 
-
-    console.log(data);
 }
 
-getFish()
+
+//Navigation for mobile 
+const navButton = document.querySelector('.hamburger-button'); 
+const navItems = document.querySelector('.nav');
+let menuOpen = false; 
+
+navButton.addEventListener('click', () => { 
+    navItems.classList.toggle('hamburger-show');
+    if(!menuOpen) { 
+        navButton.classList.add('menu-open'); 
+        menuOpen = true; 
+    } else {
+    navButton.classList.remove('menu-open');
+    menuOpen = false;  
+    }
+})

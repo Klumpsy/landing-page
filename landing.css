@@ -9,10 +9,11 @@
 
 /*-------------Colors-----------------------*/ 
 --clr-main: #77a0ba;
---clr-secondary: #a01d21
+--clr-secondary: #a01d21;
 }
+
 body { 
-    background-color: #e1f5f6;
+    background-color: #cddbe0;
 }
 
 header { 
@@ -23,7 +24,9 @@ header {
 }
 
 nav { 
-    width: 1550px;
+    position: relative;
+    width: 100%;
+    max-width: 1550px;
     display: flex;
     justify-content: space-between;
     font-family: var(--nav-font);
@@ -39,11 +42,11 @@ nav a {
 
 nav a:hover { 
     color: var(--clr-secondary);
-    text-decoration: underline;
     transition: ease-in-out .3s;
 }
 
 section {
+    position: relative;
     height: 80vh;
     display: flex;
     flex-direction: row-reverse;
@@ -84,9 +87,21 @@ section span:before {
 }
 
 .sign-up { 
+    margin: 25px;
     width: 40%;
     max-width: 600px;
     height: 400px;
+    font-family: 'Ubuntu', sans-serif;
+    
+}
+
+.sign-up h2 { 
+    font-size: 3rem;
+    font-family:var(--main-font);
+}
+
+.main-img img {
+    width: 100%; 
 }
 
 form { 
@@ -111,7 +126,7 @@ form button {
     border: none;
     color: white;
     clip-path: polygon(0 0, 15% 0, 100% 0, 100% 100%, 49% 100%, 13% 100%, 0 100%);
-    transition: all ease-in .5s;
+    transition: all ease-in .25s;
 }
 
 form button:hover { 
@@ -120,10 +135,139 @@ form button:hover {
 }
 
 footer { 
-    position: absolute;
+    position: fixed;
     bottom: 0;
     height: 100px;
     width: 100%;
     background-color: var(--clr-main);
     clip-path: polygon(0 63%, 100% 0, 100% 100%, 0 100%);
 }
+
+.hamburger-button { 
+    position: relative;
+    height: 40px;
+    width: 40px;
+    margin: 10px 20px;
+    display: none;
+    cursor: pointer;
+    border: none;
+    transition: all .5s ease-in-out;
+}
+
+.menu-line{ 
+    width: 25px;
+    height: 4px; 
+    background-color: var(--clr-main);
+    border-radius: 10px;
+    transition: all .5s ease-in-out;
+    margin: 0 auto;
+}
+
+.menu-line::before, 
+.menu-line::after { 
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 4px; 
+    background-color: var(--clr-main);
+    border-radius: 10px;
+    left: 8px;
+    transition: all .5s ease-in-out;
+}
+
+.menu-line::before { 
+    transform: translateY(8px);
+}
+
+.menu-line::after { 
+    transform: translateY(-8px);
+}
+
+/*Button animation */ 
+.menu-open .menu-line { 
+    transform: translateX(-40px); 
+}
+
+.menu-open .menu-line::before { 
+    transform: rotate(45deg) translate(23px, -23px); 
+    background-color: var(--clr-secondary)
+}
+
+.menu-open .menu-line::after { 
+    transform: rotate(-45deg) translate(23px, 23px); 
+    background-color: var(--clr-secondary)
+}
+
+@media only screen and (max-width: 1020px) { 
+    section { 
+        flex-direction: column;
+        height: 100%;
+        margin-bottom: 175px;
+        max-width: 100%;
+    }
+
+    .sign-up { 
+        margin: 25px;
+        width: 80%;
+        height: 100%;
+    }
+
+    .main-img { 
+        width: 400px;
+    }
+
+    .nav { 
+        display: none;
+        width: 100%;
+        translate: -100%;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--clr-main);
+        transition: transform 0.5s ease-in-out;
+        z-index: 1;
+    }
+
+    nav { 
+        height: 100px;
+    }
+
+    nav h3 { 
+        font-size: 2.5rem;
+    }
+
+    .hamburger-button { 
+        display: block;
+        z-index: 2;
+    }
+
+    .hamburger-show { 
+        transform: translateX(100%);
+    }
+
+    header { 
+    clip-path: none;
+    }
+
+    @keyframes bubbleAnimation { 
+        0% { 
+            transform: translateY(250%);
+            opacity: 1;
+        } 
+        100% { 
+            transform: translateY(-1700%); 
+            opacity: 0; 
+        }
+     }
+}
+
+@media only screen and (max-width: 768px) { 
+    .main-img { 
+        width: 300px;
+    }
+
+    nav h3 { 
+        font-size: 2rem;
+    }
+}
+
