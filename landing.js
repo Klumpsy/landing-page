@@ -20,17 +20,24 @@ function createBubble() {
 setInterval(createBubble, 250);
 
 //Navigation for mobile 
+
+const navSlide = () => { 
+
 const navButton = document.querySelector('.hamburger-button'); 
 const navItems = document.querySelector('.nav');
 let menuOpen = false; 
 
 navButton.addEventListener('click', () => { 
-    navItems.classList.toggle('hamburger-show');
-    if(!menuOpen) { 
-        navButton.classList.add('menu-open'); 
-        menuOpen = true; 
-    } else {
-    navButton.classList.remove('menu-open');
-    menuOpen = false;  
-    }
-})
+    
+        if(!menuOpen) { 
+            navButton.classList.add('menu-open'); 
+             menuOpen = true; 
+        } else {
+            navButton.classList.remove('menu-open');
+            menuOpen = false;  
+        };
+navItems.classList.toggle('hamburger-show');
+    });
+};
+
+navSlide(); 

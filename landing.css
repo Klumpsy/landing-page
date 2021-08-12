@@ -143,6 +143,34 @@ footer {
     clip-path: polygon(0 63%, 100% 0, 100% 100%, 0 100%);
 }
 
+footer p { 
+    position: absolute;
+    bottom: 0;
+    color: black;
+    font-size: 1rem;
+    margin: 10px;
+}
+
+footer .socials { 
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+    font-size: 2rem;
+}
+
+.fa-facebook { 
+    color: rgb(92, 92, 212)
+}
+.fa-instagram { 
+    color: rgb(122, 23, 122)
+}
+.fa-whatsapp { 
+    color: green; 
+}
+.fa-twitter-square { 
+    color: rgb(65, 125, 182);
+}
+
 .hamburger-button { 
     position: relative;
     height: 40px;
@@ -219,7 +247,7 @@ footer {
     .nav { 
         display: none;
         width: 100%;
-        translate: -100%;
+        transform: translate(-100%);
         position: absolute;
         display: flex;
         flex-direction: column;
@@ -242,7 +270,7 @@ footer {
     }
 
     .hamburger-show { 
-        transform: translateX(100%);
+        transform: translateX(0%);
     }
 
     header { 
@@ -268,6 +296,11 @@ footer {
 
     nav h3 { 
         font-size: 2rem;
+    }
+
+    footer .socials { 
+        right: 10px;
+        font-size: 1.5rem;
     }
 }
 
